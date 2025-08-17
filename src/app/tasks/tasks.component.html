@@ -4,9 +4,13 @@
             {{user.name}}'s Tasks
         </h2>
         <menu>
-            <button>Add Task</button>
+            <button (click)="onAddTask()">Add Task</button>
         </menu>
     </header>
+
+    @if(addTask){
+       <app-new-task (close)="onClose()"/>
+    }
 
     <ul>
         @for(task of selectedUserTasks; track task.id) {

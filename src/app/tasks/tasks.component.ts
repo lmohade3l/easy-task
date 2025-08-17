@@ -1,17 +1,28 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { User } from '../models/user';
 import { TaskComponent } from "../task/task.component";
 import { Task } from '../models/task';
+import { NewTaskComponent } from "../new-task/new-task.component";
 
 @Component({
   selector: 'app-tasks',
   standalone: true,
-  imports: [TaskComponent],
+  imports: [TaskComponent, NewTaskComponent],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
   @Input({ required: true }) user!: User
+  addTask!:boolean
+
+  onAddTask() {
+    this.addTask = true;
+  }
+
+  onClose() {
+    this.addTask = false
+  }
+
   dummyTasks: Task[] = [
     {
       id: 't1',
