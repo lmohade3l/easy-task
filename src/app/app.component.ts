@@ -14,7 +14,7 @@ import { TasksComponent } from "./tasks/tasks.component";
 })
 export class AppComponent {
   users = DUMMY_USERS;
-  selectedUser!: User
+  selectedUser: User | null = null
 
   onSelectUser(event: User) {
     this.selectedUser = event;

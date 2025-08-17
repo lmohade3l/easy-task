@@ -13,6 +13,7 @@ export class UserComponent {
     avatar: string;
     name: string
   }
+  @Input() selected!: boolean;
 
   @Output() select = new EventEmitter();
 
