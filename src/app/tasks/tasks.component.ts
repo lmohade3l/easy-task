@@ -13,7 +13,7 @@ import { NewTaskComponent } from "../new-task/new-task.component";
 })
 export class TasksComponent {
   @Input({ required: true }) user!: User
-  addTask!:boolean
+  addTask!: boolean
 
   onAddTask() {
     this.addTask = true;
@@ -56,5 +56,19 @@ export class TasksComponent {
   onCompleteTask(id: string) {
     console.log(id)
     this.dummyTasks = this.dummyTasks.filter(t => t.id !== id)
+  }
+
+  onAddNewTask(newTask: {
+    title: string,
+    date: string,
+    summary: string
+  }) {
+    this.dummyTasks.push({
+      title: newTask.title,
+      summary: newTask.summary,
+      dueDate: newTask.date,
+      userId: this.user.id,
+      id: new Date().getTime().toString()
+    })
   }
 }

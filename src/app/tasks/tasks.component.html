@@ -9,7 +9,7 @@
     </header>
 
     @if(addTask){
-       <app-new-task (close)="onClose()"/>
+       <app-new-task (add)="onAddNewTask($event)" (close)="onClose()"/>
     }
 
     <ul>
