@@ -41,4 +41,9 @@ export class TasksComponent {
   get selectedUserTasks() {
     return this.dummyTasks.filter(t => t.userId === this.user?.id)
   }
+
+  onCompleteTask(id: string) {
+    console.log(id)
+    this.dummyTasks = this.dummyTasks.filter(t => t.id !== id)
+  }
 }
